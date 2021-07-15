@@ -22,10 +22,10 @@ namespace Domain.Services
             _mapper = mapper;
         }
 
-        public async Task Add(CarDto car)
+        public async Task<int> Add(CarDto car)
         {
             var carEntity = _mapper.Map<CarEntity>(car);
-            await _carRepository.Add(carEntity);
+            return await _carRepository.Add(carEntity);
         }
 
         public async Task Delete(int id)
@@ -43,11 +43,7 @@ namespace Domain.Services
         public async Task<List<CarDto>> GetCars()
         {
             var result = await _carRepository.GetCars();
-            List<CarDto> carsDto = new List<CarDto>();
-            foreach (var item in result)
-            {
-                carsDto.Add(_mapper.Map<CarDto>(item));
-            }
+            var carsDto = _mapper.Map<List<CarDto>>(result);
             return carsDto;
         }
 

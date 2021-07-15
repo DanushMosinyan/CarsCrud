@@ -15,9 +15,9 @@ namespace Infrastructure.Repositories
             _dbConnection = dbConnection;
         }
 
-        public async Task Add(string query, object param)
+        public async Task<int> Add(string query, object param)
         {
-            await _dbConnection.ExecuteAsync(query, param);
+            return await _dbConnection.QuerySingleAsync<int>(query, param);
         }
 
         public async Task Delete(string query, object param)

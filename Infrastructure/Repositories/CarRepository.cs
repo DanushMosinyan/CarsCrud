@@ -15,10 +15,10 @@ namespace Infrastructure.Repositories
             _carRepo = carRepo;
         }
 
-        public async Task Add(CarEntity car)
+        public async Task<int> Add(CarEntity car)
         {
-            var query = @"INSERT INTO Cars(Description,Image) VALUES(@Description,@Image)";
-            await _carRepo.Add(query, car);
+            var query = "INSERT INTO Cars(Description,Image) VALUES(@Description,@Image);\n SELECT * FROM Cars WHERE Id = (select MAX(Cars.Id) from Cars)";
+            return await _carRepo.Add(query, car);
         }
 
         public async Task<IEnumerable<CarEntity>> GetCars()

@@ -35,9 +35,9 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]
-        public async Task Post([FromBody] CarDto car)
+        public async Task<int> Post([FromBody] CarDto car)
         {
-            await _carService.Add(car);
+            return await _carService.Add(car);
         }
 
         [HttpPut("{id}")]

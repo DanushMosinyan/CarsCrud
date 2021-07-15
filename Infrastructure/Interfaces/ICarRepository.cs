@@ -9,7 +9,7 @@ namespace Infrastructure.Interfaces
     public interface ICarRepository
     {
         public Task<CarEntity> GetCarById(int id);
-        public Task Add(CarEntity car);
+        public Task<int> Add(CarEntity car);
         public Task<IEnumerable<CarEntity>> GetCars();
         public Task Delete(int id);
         public Task Update(int id,CarEntity car);
