@@ -5,9 +5,9 @@ namespace Infrastructure.Interfaces
 {
     public interface IGenericRepository<T> where T : class
     {
-        Task<int> Add(string query, object param);
-        Task<T> GetById(string query, object param);
-        Task<IEnumerable<T>> GetAll(string query);
+        Task<int> Post(string query, object param);
+        Task<T> Get(string query, object param);
+        Task<IEnumerable<T>> Get(string query);
         Task Delete(string query, object param);
         Task Put(string query, object param);
     }

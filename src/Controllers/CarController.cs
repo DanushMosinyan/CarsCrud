@@ -21,23 +21,23 @@ namespace WebApplication3.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCars()
+        public async Task<IActionResult> Get()
         {
-            var result = await _carService.GetCars();
+            var result = await _carService.Get();
             return Ok(result);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCarById(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            var result = await _carService.GetCarById(id);
+            var result = await _carService.Get(id);
             return Ok(result);
         }
 
         [HttpPost]
         public async Task<int> Post([FromBody] SetCarDto car)
         {
-            return await _carService.Add(car);
+            return await _carService.Post(car);
         }
 
         [HttpPut("{id}")]

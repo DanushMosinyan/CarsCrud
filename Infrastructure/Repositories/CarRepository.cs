@@ -15,24 +15,24 @@ namespace Infrastructure.Repositories
             _carRepo = carRepo;
         }
 
-        public async Task<int> Add(CarEntity car)
+        public async Task<int> Post(CarEntity car)
         {
             var query = "INSERT INTO Cars(Description,Image) OUTPUT INSERTED.ID VALUES(@Description,@Image);";
-            return await _carRepo.Add(query, car);
+            return await _carRepo.Post(query, car);
         }
 
-        public async Task<IEnumerable<CarEntity>> GetCars()
+        public async Task<IEnumerable<CarEntity>> Get()
         {
             string sQuery = @"SELECT * FROM Cars";
-            var result = await _carRepo.GetAll(sQuery);
+            var result = await _carRepo.Get(sQuery);
             return result;
         }
 
-        public async Task<CarEntity> GetCarById(int id)
+        public async Task<CarEntity> Get(int id)
         {
             var query = "SELECT * FROM Cars WHERE Id = @Id";
             var param = new { Id = id };
-            var result = await _carRepo.GetById(query, param);
+            var result = await _carRepo.Get(query, param);
             return result;
         }
 

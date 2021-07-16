@@ -15,7 +15,7 @@ namespace Infrastructure.Repositories
             _dbConnection = dbConnection;
         }
 
-        public async Task<int> Add(string query, object param = null)
+        public async Task<int> Post(string query, object param = null)
         {
             return await _dbConnection.QuerySingleAsync<int>(query, param);
         }
@@ -25,13 +25,13 @@ namespace Infrastructure.Repositories
             await _dbConnection.ExecuteAsync(query, param);
         }
 
-        public async Task<IEnumerable<T>> GetAll(string query)
+        public async Task<IEnumerable<T>> Get(string query)
         {
             var result = await _dbConnection.QueryAsync<T>(query);
             return result;
         }
 
-        public async Task<T> GetById(string query, object param = null)
+        public async Task<T> Get(string query, object param = null)
         {
             var result = await _dbConnection.QuerySingleAsync<T>(query, param);
             return result;
