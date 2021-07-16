@@ -9,9 +9,9 @@ namespace Domain.Interfaces
     public interface ICarService
     {
         public Task<CarDto> GetCarById(int id);
-        public Task<int> Add(CarDto car);
+        public Task<int> Add(SetCarDto car);
         public Task<List<CarDto>> GetCars();
         public Task Delete(int id);
-        public Task Update(int id,CarDto car);
+        public Task Update(int id,SetCarDto car);
     }
 }

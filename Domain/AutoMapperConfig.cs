@@ -12,6 +12,7 @@ namespace Domain
         public AutoMapperConfig()
         {
             CreateMap<CarDto, CarEntity>().ReverseMap();
+            CreateMap<SetCarDto, CarEntity>().ReverseMap();
         }
     }
 }

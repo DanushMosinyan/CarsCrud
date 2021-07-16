@@ -35,13 +35,13 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]
-        public async Task<int> Post([FromBody] CarDto car)
+        public async Task<int> Post([FromBody] SetCarDto car)
         {
             return await _carService.Add(car);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] CarDto car)
+        public async Task<IActionResult> Put(int id, [FromBody] SetCarDto car)
         {
             await _carService.Update(id,car);
             return Ok();

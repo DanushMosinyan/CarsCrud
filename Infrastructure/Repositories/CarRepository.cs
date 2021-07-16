@@ -17,7 +17,7 @@ namespace Infrastructure.Repositories
 
         public async Task<int> Add(CarEntity car)
         {
-            var query = "INSERT INTO Cars(Description,Image) VALUES(@Description,@Image);\n SELECT * FROM Cars WHERE Id = (select MAX(Cars.Id) from Cars)";
+            var query = "INSERT INTO Cars(Description,Image) OUTPUT INSERTED.ID VALUES(@Description,@Image);";
             return await _carRepo.Add(query, car);
         }
 
@@ -32,7 +32,6 @@ namespace Infrastructure.Repositories
         {
             var query = "SELECT * FROM Cars WHERE Id = @Id";
             var param = new { Id = id };
-
             var result = await _carRepo.GetById(query, param);
             return result;
         }

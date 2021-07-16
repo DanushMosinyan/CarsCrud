@@ -13,7 +13,6 @@ namespace Domain.Services
     public class CarService : ICarService
     {
         private readonly ICarRepository _carRepository;
-
         private readonly IMapper _mapper;
 
         public CarService(ICarRepository carRepository, IMapper mapper)
@@ -22,7 +21,7 @@ namespace Domain.Services
             _mapper = mapper;
         }
 
-        public async Task<int> Add(CarDto car)
+        public async Task<int> Add(SetCarDto car)
         {
             var carEntity = _mapper.Map<CarEntity>(car);
             return await _carRepository.Add(carEntity);
@@ -47,10 +46,10 @@ namespace Domain.Services
             return carsDto;
         }
 
-        public async Task Update(int id,CarDto car)
+        public async Task Update(int id, SetCarDto car)
         {
             var carEntity = _mapper.Map<CarEntity>(car);
-            await _carRepository.Update(id,carEntity);
+            await _carRepository.Update(id, carEntity);
         }
     }
 }

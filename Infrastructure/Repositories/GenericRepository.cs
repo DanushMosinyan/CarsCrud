@@ -15,12 +15,12 @@ namespace Infrastructure.Repositories
             _dbConnection = dbConnection;
         }
 
-        public async Task<int> Add(string query, object param)
+        public async Task<int> Add(string query, object param = null)
         {
             return await _dbConnection.QuerySingleAsync<int>(query, param);
         }
 
-        public async Task Delete(string query, object param)
+        public async Task Delete(string query, object param = null)
         {
             await _dbConnection.ExecuteAsync(query, param);
         }
@@ -31,13 +31,13 @@ namespace Infrastructure.Repositories
             return result;
         }
 
-        public async Task<T> GetById(string query, object param)
+        public async Task<T> GetById(string query, object param = null)
         {
             var result = await _dbConnection.QuerySingleAsync<T>(query, param);
             return result;
         }
 
-        public async Task Update(string query, object param)
+        public async Task Update(string query, object param = null)
         {
             await _dbConnection.ExecuteAsync(query, param);
         }
