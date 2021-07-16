@@ -46,10 +46,10 @@ namespace Domain.Services
             return carsDto;
         }
 
-        public async Task Update(int id, SetCarDto car)
+        public async Task Put(int id, SetCarDto car)
         {
             var carEntity = _mapper.Map<CarEntity>(car);
-            await _carRepository.Update(id, carEntity);
+            await _carRepository.Put(id, carEntity);
         }
     }
 }

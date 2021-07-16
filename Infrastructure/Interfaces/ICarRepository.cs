@@ -12,6 +12,6 @@ namespace Infrastructure.Interfaces
         public Task<int> Add(CarEntity car);
         public Task<IEnumerable<CarEntity>> GetCars();
         public Task Delete(int id);
-        public Task Update(int id,CarEntity car);
+        public Task Put(int id, CarEntity car);
     }
 }

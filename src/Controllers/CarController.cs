@@ -43,7 +43,7 @@ namespace WebApplication3.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] SetCarDto car)
         {
-            await _carService.Update(id,car);
+            await _carService.Put(id,car);
             return Ok();
         }
 

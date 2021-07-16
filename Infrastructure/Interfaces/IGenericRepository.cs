@@ -9,6 +9,6 @@ namespace Infrastructure.Interfaces
         Task<T> GetById(string query, object param);
         Task<IEnumerable<T>> GetAll(string query);
         Task Delete(string query, object param);
-        Task Update(string query, object param);
+        Task Put(string query, object param);
     }
 }

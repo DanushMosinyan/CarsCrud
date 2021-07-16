@@ -12,6 +12,6 @@ namespace Domain.Interfaces
         public Task<int> Add(SetCarDto car);
         public Task<List<CarDto>> GetCars();
         public Task Delete(int id);
-        public Task Update(int id,SetCarDto car);
+        public Task Put(int id,SetCarDto car);
     }
 }

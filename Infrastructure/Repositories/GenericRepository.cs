@@ -37,7 +37,7 @@ namespace Infrastructure.Repositories
             return result;
         }
 
-        public async Task Update(string query, object param = null)
+        public async Task Put(string query, object param = null)
         {
             await _dbConnection.ExecuteAsync(query, param);
         }

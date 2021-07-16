@@ -42,10 +42,10 @@ namespace Infrastructure.Repositories
             await _carRepo.Delete(sQuery, new { Id = id });
         }
 
-        public async Task Update(int id, CarEntity car)
+        public async Task Put(int id, CarEntity car)
         {
             string query = @"UPDATE Cars SET Description = @Description,Image = @Image WHERE Id = @Id";
-            await _carRepo.Update(query, new {Id=id,Description= car.Description, Image=car.Image});
+            await _carRepo.Put(query, new { Id = id, Description = car.Description, Image = car.Image });
         }
     }
 }
